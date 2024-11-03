@@ -1,7 +1,17 @@
-`python -m venv .venv`
-`source .venv/Scripts/activate`
+![flappy bird](_docs/logo.png)
 
-`python.exe -m pip install --upgrade pip`
-`pip install -r requirements.txt`
+# Demo
 
-`python main.py`
+![flappy bird](_docs/demo.gif)
+
+## Running
+
+Running the game is as simple as:
+
+```npm start```
+
+The game will start at port 3000 on localhost.
+
+# About me
+
+Check out [curcio.dev](https://curcio.dev)
