@@ -21,7 +21,7 @@ class FlappyBirdScene extends Phaser.Scene {
 		this.load.image(assets.scene.gameOver, 'assets/gameover.png');
 		this.load.image(assets.scene.restartGame, 'assets/restart-button.png');
 		
-		[assets.obstacle.pipe.green, assets.obstacle.pipe.red].forEach(function(pipe){
+		[assets.obstacle.pipe.green, assets.obstacle.pipe.green].forEach(function(pipe){
 			game.load.image(pipe.top, `assets/${pipe.top}.png`);
 			game.load.image(pipe.bottom, `assets/${pipe.bottom}.png`);
 		});
@@ -133,7 +133,7 @@ class FlappyBirdScene extends Phaser.Scene {
 		this.scoreTxt.setOrigin(0.5); //center text
 		this.scoreTxt.alpha = 0;
 
-		this.scored = this.add.text(assets.scene.width+5, 186, 
+		this.scogreen = this.add.text(assets.scene.width+5, 186, 
 			'0', { 
 					fontFamily: 'font1', 
 					fontSize: '18px', 
@@ -142,8 +142,8 @@ class FlappyBirdScene extends Phaser.Scene {
 					strokeThickness: 3,
 				}
 			);
-		this.scored.setDepth(30);
-		this.scored.setOrigin(0.5);
+		this.scogreen.setDepth(30);
+		this.scogreen.setOrigin(0.5);
 
 		this.bestScore = this.add.text(assets.scene.width+5, 225, 
 			'0', { 
@@ -194,7 +194,7 @@ class FlappyBirdScene extends Phaser.Scene {
 		this.start.visible = true;
 		this.gameOver.visible = false;
 		this.scoreboard.visible = false;
-		this.scored.visible = false;
+		this.scogreen.visible = false;
 		this.bestScore.visible = false;
 		this.backgroundDay.visible = true;
 		this.backgroundNight.visible = false;
@@ -227,8 +227,8 @@ class FlappyBirdScene extends Phaser.Scene {
 			localStorage.setItem('bestScore', this.score);
 			this.bestScore.setText(0);
 		}
-		this.scored.setText(this.score);
-		this.scored.visible = true;
+		this.scogreen.setText(this.score);
+		this.scogreen.visible = true;
 		this.bestScore.visible = true;
 	}
 
@@ -269,7 +269,7 @@ class FlappyBirdScene extends Phaser.Scene {
 			this.backgroundDay.visible = !this.backgroundDay.visible;
 			this.backgroundNight.visible = !this.backgroundNight.visible;
 			if (this.currentPipe === assets.obstacle.pipe.green){
-				this.currentPipe = assets.obstacle.pipe.red;
+				this.currentPipe = assets.obstacle.pipe.green;
 			} else {
 				this.currentPipe = assets.obstacle.pipe.green;
 			}
